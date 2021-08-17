@@ -1,0 +1,76 @@
+<div class="container">
+    {{!-- header --}}
+    {{> header
+    page
+    sticky=stickyHeader
+    }}
+    {{!-- main --}}
+    <div class="main my-[50px] rounded-[10px] shadow w-[80%] mx-auto pt-[20px]">
+        <div class="flex justify-between mb-[50px] px-[20px] ">
+            <h1 class="font-semibold text-[25px] ">Đăng nhập</h1>
+            <div class="flex my-auto">
+                <p class="mr-[10px]">Nếu chưa có tài khoản ?</p>
+                <a class="font-medium text-[#1273eb]" href="/register">Đăng ký</a>
+            </div>
+        </div>
+        <div class="px-[20px] grid grid-cols-2 ">
+            <div>
+                <img class="w-[300px] mx-auto " src="/media/pictures/signin-image.jpg" alt="">
+            </div>
+            <div>
+                <div>
+                    <h3 class="font-bold text-[35px] mb-[5px] ">Chào mừng quay trở lại</h3>
+                    <p class="mb-[20px] text-[14px] text-[#6b6b6b] ">Đăng nhập để có nhiều tiện ích và trải nghiệm hơn
+                        với các tính năng của chúng tôi</p>
+                </div>
+                <form action="">
+                    <div class="content__form mb-[40px] ">
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/envelope.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none " placeholder="Email hoặc tên đăng nhập của bạn....."
+                                    type="text">
+                            </p>
+                        </div>
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/lock.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none " placeholder="Mật khẩu của bạn....."
+                                    type="password">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-[20px] mb-[50px] ">
+                        <button
+                            class="py-[10px] bg-[#1273eb] rounded-[10px] text-white font-semibold ">Đăng
+                            nhập</button>
+                        <a class="my-auto font-semibold " href="">Quên mật khẩu</a>
+                    </div>
+                    <div class="flex mb-[40px]">
+                        <p class="mr-[20px] my-auto text-[#6b6b6b] ">Đăng nhập với </p>
+                        <div class="flex">
+                            <p class="p-[8px] bg-[#f3f3f3] rounded-full cursor-pointer mr-[15px] ">
+                                <img class="w-[25px]" src="/media/icons/google.svg" alt="">
+                            </p>
+                            <p class="p-[8px] bg-[#f3f3f3] rounded-full cursor-pointer mr-[15px]">
+                                <img class="w-[25px]" src="/media/icons/facebook.svg" alt="">
+                            </p>
+                            <p class="p-[8px] bg-[#f3f3f3] rounded-full cursor-pointer mr-[15px]">
+                                <img class="w-[25px]" src="/media/icons/github.svg" alt="">
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{!-- footer --}}
+    {{> footer}}
+</div>
+<script src="/js/login.module.chunks.js"></script>

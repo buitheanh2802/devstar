@@ -1,0 +1,105 @@
+<div class="container">
+    {{!-- header --}}
+    {{> header
+    page
+    sticky=stickyHeader}}
+    {{!-- main --}}
+    <div class="main my-[50px] rounded-[10px] shadow w-[80%] mx-auto pt-[20px]">
+        <div class="flex justify-between mb-[20px] px-[20px] ">
+            <h1 class="font-semibold text-[25px] ">Đăng ký</h1>
+            <div class="flex my-auto">
+                <p class="mr-[10px]">Nếu đã có tài khoản ?</p>
+                <a class="font-medium text-[#1273eb]" href="/login">Đăng nhập</a>
+            </div>
+        </div>
+        <div class="px-[20px] grid grid-cols-2 ">
+            <div>
+                <img class="w-[300px] mx-auto " src="/media/pictures/signup-image.jpg" alt="">
+            </div>
+            <div>
+                <div>
+                    <h3 class="font-bold text-[35px] mb-[5px] ">Đăng ký thành viên </h3>
+                    <p class="mb-[20px] text-[14px] text-[#6b6b6b] ">Đăng ký để trở thành thành viên của chúng tôi ngay
+                        hôm nay</p>
+                </div>
+                <form action="">
+                    <div class="content__form mb-[20px] ">
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/user.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none " placeholder="Tên của bạn....."
+                                    type="text">
+                            </p>
+                        </div>
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/user.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none "
+                                    placeholder="Tên đăng nhập của bạn....." type="text">
+                            </p>
+                        </div>
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/envelope.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none " placeholder="Email của bạn....."
+                                    type="text">
+                            </p>
+                        </div>
+                        <div class="flex mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/sex.svg" alt="">
+                            </p>
+                            <p class="w-full py-[15px] ">
+                                <label class="cursor-pointer checked:text-black mr-[15px] ">
+                                    <input class="translate-y-[1px] peer" type="radio" name="gender">
+                                    <span class="text-[#666666] peer-checked:text-black">Nam</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input class="translate-y-[1px] peer" type="radio" name="gender">
+                                    <span class="text-[#666666] peer-checked:text-black">Nữ</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/lock.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none " placeholder="Mật khẩu của bạn....."
+                                    type="password">
+                            </p>
+                        </div>
+                        <div
+                            class="flex focus-within:border-[#1273eb] mb-[20px] px-[10px] border-[2px] border-[#cacaca] rounded-[4px] ">
+                            <p class="my-auto mr-[15px] ">
+                                <img class="w-[15px]" src="/media/icons/lock.svg" alt="">
+                            </p>
+                            <p class="w-full">
+                                <input class="w-full py-[15px] focus:outline-none "
+                                    placeholder="Nhập lại mật khẩu của bạn....." type="password">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-[20px] mb-[30px] ">
+                        <button
+                            class="py-[10px] bg-[#1273eb] rounded-[10px] text-white font-semibold ">Đăng
+                            ký</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{!-- footer --}}
+    {{> footer}}
+</div>
+<script src="/js/login.module.chunks.js"></script>

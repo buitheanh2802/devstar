@@ -1,0 +1,59 @@
+<div class="header__box mt-[20px] sm:mt-[5px] {{#if sticky}} 
+    header__active-scroll !bg-white sticky border-b {{else}} fixed {{/if}}  
+    transition-all top-0 bg-none z-30 w-full ">
+    <div class="header py-[10px] lg:py-[10px] font-medium w-[1215px] sm:w-[90%] mx-auto flex justify-between ">
+        <div class="flex">
+            <h1 class="">
+                <a href="/" class="logo flex mr-[100px] {{#if sticky}} text-black {{else}} text-white {{/if}} ">
+                    <div class="mr-[5px] self-center ">
+                        <img class="max-w-[30px] sm:max-w-[24px] " src="/media/icons/logo.svg" alt="logo website">
+                    </div>
+                    <span class="self-center text-[23px] sm:text-[20px] font-bold">DevStar</span>
+                    {{!-- <span class="uppercase text-[23px] sm:text-[20px] font-light ml-[5px] self-center ">
+                        <span>s</span><span class="lowercase">ki</span><span class="lowercase">ll</span></span> --}}
+                </a>
+            </h1>
+            <div class="my-auto lg:hidden text-[16px] ">
+                <ul class="flex my-auto {{#if sticky}} text-black {{else}} text-[#d8d8d8] {{/if}} ">
+                    <li class="mr-[20px]">
+                        <a class="{{#if isPostPage}} relative after:bottom-[-17px] after:right-0 after:bg-[#1273eb] after:absolute after:w-full after:h-[2px] {{/if}}"
+                            href="/posts">Bài
+                            viết</a>
+                    </li>
+                    <li class="mr-[20px]">
+                        <a class="{{#if isQuestionPage}}  relative after:bottom-[-17px] after:right-0 after:bg-[#1273eb] after:absolute after:w-full after:h-[2px] {{/if}}"
+                            href="/questions">Hỏi đáp</a>
+                    </li>
+                    <li class="mr-[20px]">
+                        <a class="" href="">Blog</a>
+                    </li>
+                    <li class="mr-[20px]">
+                        <a href="/about">Giới thiệu</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="account my-auto sm:hidden">
+            <ul class="flex {{#if sticky}} text-black {{else}} text-[#d8d8d8] {{/if}}">
+                <li class="mr-[20px]">
+                    <a class="{{#if isLoginpage}}  relative after:bottom-[-17px] after:right-0 after:bg-[#1273eb] after:absolute after:w-full after:h-[2px] {{/if}}"
+                        href="/login">
+                        Đăng nhập
+                    </a>
+                </li>
+                <li>
+                    <a class="px-[15px]
+                    hover:border-[#1273eb] py-[5px]  {{#if isRegisterpage}} border-[#1273eb] 
+                    {{/if}} border rounded " href="/register">Đăng ký
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar hidden lg:flex ">
+            <div class="self-center">
+                <img class="max-w-[30px] sm:max-w-[24px] transform translate-y-[4px] " src="/media/icons/menu.svg"
+                    alt="menu mobile and tablet">
+            </div>
+        </div>
+    </div>
+</div>

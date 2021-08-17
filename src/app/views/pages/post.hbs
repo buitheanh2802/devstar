@@ -1,0 +1,106 @@
+<div class="container">
+    {{> header page sticky=stickyHeader}}
+    <div class="main bg-[#fafafa] py-[20px] ">
+        <div class="w-[1215px] mx-auto">
+            <div class="navigation flex justify-between shadow-sm bg-white px-[5px] rounded ">
+                <div class="py-[15px]">
+                    <a class="inline-block text-[15px]
+                  after:absolute after:w-full after:h-[2px] after:rounded
+                  after:bottom-[-16px] after:left-0 after:bg-[#1273eb] font-medium
+                  text-black relative 
+                 hover:text-black mr-[20px] px-[5px] " href="">Mới cập nhật</a>
+                    <a class="inline-block text-[15px] px-[5px] text-gray-600 hover:text-black mr-[20px]" href="">
+                        Thịnh hành</a>
+                    <a class="inline-block text-[15px] px-[5px] text-gray-600 hover:text-black mr-[20px]" href="">
+                        Đang theo dõi</a>
+                    <a class="inline-block text-[15px] px-[5px] text-gray-600 hover:text-black mr-[20px]" href="">
+                        Bookmark của tôi</a>
+                </div>
+                <div class="self-center">
+                    <a href=""
+                        class="flex my-auto hover:bg-[#0d61c7] bg-[#1273eb] text-white rounded px-[10px] gap-[5px] py-[5px] text-[14px] ">
+                        <div class="self-center">
+                            <img class="w-[15px]" src="/media/icons/pen-white.svg" alt="">
+                        </div>
+                        <span>Viết bài</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="post__content-box flex py-[15px] w-[1215px] gap-[15px] mx-auto shadow-sm ">
+            <div class="post__list w-[75%] bg-white">
+                <div class="main__post">
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                    {{> post-item}}
+                </div>
+            </div>
+            <div class="sidebar shadow-sm bg-white w-[25%] ">
+                <div class="sticky top-[60px]">
+                    <div class="sidebar__content h-[calc(100vh-60px)] overflow-hidden">
+                        <h2 class="px-[5px] uppercase font-medium py-[10px] border-b mx-[5px] ">
+                            <a class="hover:underline" href="/posts">Bài viết mới nhất</a>
+                        </h2>
+                        <div class="post__item-latest">
+                            {{> post-item-latest}}
+                            {{> post-item-latest}}
+                            {{> post-item-latest}}
+                            {{> post-item-latest}}
+                            {{> post-item-latest}}
+                        </div>
+                        <h2 class="px-[5px] uppercase font-medium py-[10px] border-b mx-[5px] ">
+                            <a class="hover:underline" href="/authorfeatured"> Các tác giả nổi bật</a>
+                        </h2>
+                        <div class="author__highlights py-[5px] mx-[10px] ">
+                            {{> post-item-author}}
+                            {{> post-item-author}}
+                            {{> post-item-author}}
+                            {{> post-item-author}}
+                        </div>
+                        <h2 class="px-[5px] uppercase font-medium py-[10px] border-b mx-[10px] ">
+                            <a class="hover:underline" href="/tags">Các tag thịnh hành</a>
+                        </h2>
+                        <div class="mt-[5px] tags__highlights text-[14px] py-[5px] mx-[10px] flex flex-wrap ">
+                            {{> post-item-tag name='Webpack'}}
+                            {{> post-item-tag name='ReactJS'}}
+                            {{> post-item-tag name='Nodejs'}}
+                            {{> post-item-tag name='MongoDB'}}
+                            {{> post-item-tag name='Mongoose'}}
+                            {{> post-item-tag name='NextJS'}}
+                            {{> post-item-tag name='ExpressHandlebars'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-[1215px] mx-auto">
+            <div class="panigation shadow-sm bg-white px-[5px] rounded ">
+                <div class="flex gap-[10px] py-[10px]">
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] "><img
+                            class="mx-auto w-[15px] " src="/media/icons/left-arrow.svg" alt=""></button>
+                    <button class="p-[5px] bg-[#1273eb] rounded text-white w-[35px] h-[35px] ">1</button>
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] ">2</button>
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] ">3</button>
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] ">4</button>
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] ">5</button>
+                    <button class="p-[5px] rounded border text-gray-500 w-[35px] h-[35px] "><img
+                            class="mx-auto w-[15px] " src="/media/icons/right-arrow.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</div>
+<script defer src="/js/post.module.chunks.js"></script>

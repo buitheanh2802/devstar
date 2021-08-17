@@ -1,0 +1,341 @@
+<div class="container">
+    {{> header sticky=stickyHeader}}
+    <div class="main bg-[#fafafa] py-[20px] ">
+        <div class="w-[1215px] mx-auto">
+            <div class="navigation text-[#555555] flex text-[14px] py-[15px] shadow-sm bg-white px-[5px] rounded ">
+                <p class="pr-[20px] relative after:content-['/'] after:absolute after:right-[7px] "><a
+                        class="hover:underline" href="/">Trang chủ</a></p>
+                <p class="pr-[20px] relative after:content-['/'] after:absolute after:right-[7px] "><a
+                        class="hover:underline" href="/posts">bài viết</a></p>
+                <p class="pr-[20px] text-[#1273eb]">tìm hiểu về middleware trong nodeJS</p>
+            </div>
+        </div>
+        <div class="flex w-[1215px] py-[15px] gap-[15px] mx-auto">
+            <div class="w-[75%] p-[10px] shadow-sm bg-white ">
+                {{!-- post title --}}
+                <div class="relative mb-[20px] ">
+                    <h2 class="text-[35px] mb-[5px] pr-[50px] font-semibold text-[#0b1a33] ">
+                        Tìm hiểu về middleware trong NodeJS
+                    </h2>
+                    <div>
+                        <div class="flex text-[14px] mb-[8px] ">
+                            <div class="flex mr-[10px] ">
+                                <div class="my-auto mr-[5px] ">
+                                    <img class="w-[15px] " src="/media/icons/eye.svg" alt="">
+                                </div>
+                                <span class="my-auto text-[#5f5f5f]">48 lượt xem</span>
+                            </div>
+                            <div class="flex mr-[10px] ">
+                                <div class="my-auto mr-[5px] ">
+                                    <img class="w-[15px] " src="/media/icons/chat.svg" alt="">
+                                </div>
+                                <span class="my-auto text-[#5f5f5f]">20 bình luận</span>
+                            </div>
+                            <div class="flex mr-[10px] ">
+                                <div class="my-auto mr-[5px] ">
+                                    <img class="w-[15px] " src="/media/icons/bookmark.svg" alt="">
+                                </div>
+                                <span class="my-auto text-[#5f5f5f]">20 đã lưu</span>
+                            </div>
+                        </div>
+                        <div class="post__tags flex mt-[5px] ">
+                            <div class="inline-flex mr-[10px] ">
+                                <div class=" mr-[5px] ">
+                                    <img class="max-w-[10px] translate-y-[7px] " src="/media/icons/price-tag.svg"
+                                        alt="tag image">
+                                </div>
+                                <span class="text-[14px] text-[#707885]  ">Tags </span>
+                            </div>
+                            <div class="tag__item flex flex-wrap mr-[100px] ">
+                                <a class="block hover:bg-gray-300 mb-[5px] mr-[5px] bg-[#e7e7e7] px-[10px] py-[2px] 
+                                    text-[#5f5f5f] text-[12px] rounded-[3px] " href="">NodeJS</a>
+                                <a class="block hover:bg-gray-300 mb-[5px] mr-[5px] bg-[#e7e7e7] px-[10px] py-[2px] 
+                                    text-[#5f5f5f] text-[12px] rounded-[3px] " href="">ExpressJS
+                                </a>
+                            </div>
+                        </div>
+                        <span class="block text-[14px] text-[#707885] ">Khoảng 2h trước</span>
+                    </div>
+                    <button class="p-[5px] cursor-pointer absolute right-[10px] top-0 "><img class="w-[20px]"
+                            src="/media/icons/more.svg" alt=""></button>
+                </div>
+                {{!-- main content --}}
+                <div class="main__content pb-[15px] mb-[15px] border-b text-[18px]">
+                    <h3>Mở đầu</h3>
+                    <p>NodeJS là một platform cho phía server được xây dựng dựa trên Google Engine V8, với khả năng giúp
+                        lập trình viên implement phần backend của một hệ thống web application bằng Javascript.</p>
+                    <p>Tuy nhiên đặc điểm của NodeJS là sử dụng các mô hình lập trình như hướng sự kiện (event-driven),
+                        không chặn I/O (Non-blocking I/O) nhằm mục đích cung cấp một platform gọn nhẹ và hiệu quả, thích
+                        hợp cho các web-app thời gian thực, cùng với việc lựa chọn ngôn ngữ Javascript làm nền tảng,
+                        khiến cho còn rất nhiều thư viện, tiện ích thiết thực cho việc lập trình web là chưa có, hoặc
+                        chưa đủ để thỏa mãn nhu cầu hiện tại.</p>
+                    <p>
+                        Do đó khi làm việc với NodeJS, ngoài việc phải quen với tư duy lập trình không theo một luồng cố
+                        định (event, callback,...), đôi khi chúng ta sẽ phải đi sâu hơn một chút để xử lý các vấn đề cơ
+                        bản của phía server. Nếu đã từng làm việc với một số Framework như Laravel hoặc Rails của PHP,
+                        bạn sẽ không gặp phải các vấn đề đó, tuy nhiên nó khá là thú vị và rất đáng để thử.
+                    </p>
+                    <p>
+                        Trong bài viết ngày hôm nay, tôi sẽ trinh bày với các bạn về một vấn đề trong việc lập trình web
+                        với NodeJS, đó là về Middleware và tác dụng cũng như cách sử dụng chúng trong việc phát triển
+                        web phần backend.
+                    </p>
+                    <h2>
+                        Định nghĩa về Middleware
+                    </h2>
+                    <h3>Middleware nói chung</h3>
+                    <p>Như các bạn thấy trong hình, đối với một hệ điều hành (VD Linux), Middleware sẽ đóng vai trò là
+                        các phần mềm nằm giữa các ứng dụng tương tác trực tiếp với người dùng và nhân - kernel của hệ
+                        điều hành. Đó có thể là thư viện xử lý hình ảnh OpenGL, Driver các thiết bị phần cứng/mềm, phần
+                        mềm nhận dạng giọng nói / chữ viết... Tất cả các phần mềm này nếu đã từng sử dụng máy tinh hoặc
+                        đã từng cài Win, chơi game, ắt hẳn đã có một lần bạn nghe qua chúng. Tuy nhiên một đặc điểm thú
+                        vị là chúng ta sẽ có thể cần cài các phần mềm này bằng tay nhưng ... chả bao giờ chạy trực tiếp
+                        chúng, mà sẽ sử dụng thông qua các trò chơi, các ứng dụng xử lý hình ảnh, video, trình duyệt.
+                    </p>
+                    <h3>Middleware trong ExpressJS</h3>
+                    <p>ExpressJS khi hoạt động, về cơ bản sẽ là một loạt các hàm Middleware được thực hiện liên tiếp
+                        nhau. Sau khi đã thiết lập, các request từ phía người dùng khi gửi lên ExpressJS sẽ thực hiện
+                        lần lượt qua các hàm Middleware cho đến khi trả về response cho người dùng. Các hàm này sẽ được
+                        quyền truy cập đến các đối tượng đại diện cho Request - req, Response - res, hàm Middleware tiếp
+                        theo - next, và đối tượng lỗi - err nếu cần thiết.</p>
+                    <p>Một hàm Middleware sau khi hoạt động xong, nếu chưa phải là cuối cùng trong chuỗi các hàm cần
+                        thực hiện, sẽ cần gọi lệnh next() để chuyển sang hàm tiếp theo, bằng không xử lý sẽ bị treo tại
+                        hàm đó.</p>
+                </div>
+                <div class="main__actions grid grid-cols-3 gap-[20px] w-[50%] my-[10px] ">
+                    <div class="px-[15px] py-[10px] bg-[#f7f7f7ab] hover:bg-gray-300 rounded-[5px] cursor-pointer ">
+                        <button class="flex items-center gap-[10px] ">
+                            <svg class="w-[25px] h-[25px]" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                <g>
+                                    <g xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M53.333,224C23.936,224,0,247.936,0,277.333V448c0,29.397,23.936,53.333,53.333,53.333h64    c12.011,0,23.061-4.053,32-10.795V224H53.333z"
+                                                fill="#666666" data-original="#000000" style="" class="" />
+                                        </g>
+                                    </g>
+                                    <g xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M512,304c0-12.821-5.077-24.768-13.888-33.579c9.963-10.901,15.04-25.515,13.653-40.725    c-2.496-27.115-26.923-48.363-55.637-48.363H324.352c6.528-19.819,16.981-56.149,16.981-85.333c0-46.272-39.317-85.333-64-85.333    c-22.165,0-37.995,12.48-38.677,12.992c-2.517,2.027-3.989,5.099-3.989,8.341v72.341l-61.44,133.099l-2.56,1.301v228.651    C188.032,475.584,210.005,480,224,480h195.819c23.232,0,43.563-15.659,48.341-37.269c2.453-11.115,1.024-22.315-3.861-32.043    c15.765-7.936,26.368-24.171,26.368-42.688c0-7.552-1.728-14.784-5.013-21.333C501.419,338.731,512,322.496,512,304z"
+                                                fill="#666666" data-original="#000000" style="" class="" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>1,4k</span>
+                        </button>
+                    </div>
+                    <div class="px-[15px] py-[10px] bg-[#f7f7f7ab] hover:bg-gray-300 rounded-[5px] cursor-pointer ">
+                        <button class="flex items-center gap-[10px] ">
+                            <svg class="w-[25px] h-[25px]" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                <g>
+                                    <g xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M117.333,10.667h-64C23.936,10.667,0,34.603,0,64v170.667C0,264.064,23.936,288,53.333,288h96V21.461    C140.395,14.72,129.344,10.667,117.333,10.667z"
+                                                fill="#666666" data-original="#000000" style="" class="" />
+                                        </g>
+                                    </g>
+                                    <g xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M512,208c0-18.496-10.581-34.731-26.347-42.667c3.285-6.549,5.013-13.803,5.013-21.333    c0-18.517-10.603-34.752-26.368-42.688c4.885-9.728,6.315-20.928,3.861-32.043C463.381,47.659,443.051,32,419.819,32H224    c-13.995,0-35.968,4.416-53.333,12.608v228.651l2.56,1.301l61.44,133.12V480c0,3.243,1.472,6.315,3.989,8.341    c0.683,0.512,16.512,12.992,38.677,12.992c24.683,0,64-39.061,64-85.333c0-29.184-10.453-65.515-16.981-85.333h131.776    c28.715,0,53.141-21.248,55.637-48.363c1.387-15.211-3.691-29.824-13.653-40.725C506.923,232.768,512,220.821,512,208z"
+                                                fill="#666666" data-original="#000000" style="" class="" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>1,4k</span>
+                        </button>
+                    </div>
+                    <div class="px-[15px] py-[10px] bg-[#f7f7f7ab] hover:bg-gray-300 rounded-[5px] cursor-pointer ">
+                        <button class="flex items-center gap-[10px] ">
+                            <img class="w-[25px]" src="/media/icons/share-gray.svg" alt="">
+                            <span>1,4k</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-[25%] flex flex-col ">
+                <div class="box__acc pb-[10px] mb-[15px] bg-white shadow-sm ">
+                    <div class="h-[100px] rounded-t bg-gradient-to-b from-[#1273eb] to-[#0051b5] ">
+                        <div class="flex h-full w-full"><img
+                                class="w-[70px] border- m-auto border-4 rounded-full h-[70px] "
+                                src="https://scontent.fhan7-1.fna.fbcdn.net/v/t1.6435-1/p320x320/173012119_842909266296981_1549928277775199968_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=7206a8&_nc_ohc=HoDEtGippckAX-UbEg3&_nc_ht=scontent.fhan7-1.fna&oh=791099721213340cbc5820e0c1d7fd99&oe=61290801"
+                                alt="image account">
+                        </div>
+                    </div>
+                    <div class="grid border-b grid-cols-2 px-[10px] py-[10px] mb-[10px] ">
+                        <div>
+                            <p class="font-semibold text-[17px] ">Bùi Thế Anh</p>
+                            <p class="text-[#5f5f5f] text-[14px] ">@BuiTheAnh</p>
+                        </div>
+                        <div>
+                            <button
+                                class="w-full py-[5px] border-[2px] text-[#0051b5] border-[#1273eb] rounded text-[15px] ">Theo
+                                dõi</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 pb-[10px] mb-[10px] border-b items-center px-[10px] ">
+                        <div>
+                            <p class="text-[13px] justify-center gap-[5px] flex items-center ">
+                                <img class="w-[14px] " src="/media/icons/point.svg" alt="điểm của người dùng">
+                                <span>Điểm</span>
+                            </p>
+                            <p class="text-center font-semibold text-[15px] mt-[5px] ">82</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] justify-center gap-[5px] flex items-center ">
+                                <img class="w-[14px] " src="/media/icons/pen-gray.svg" alt="điểm của người dùng">
+                                <span>Bài viết</span>
+                            </p>
+                            <p class="text-center font-semibold text-[15px] mt-[5px] ">100</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] justify-center gap-[5px] flex items-center ">
+                                <img class="w-[14px] " src="/media/icons/question-mark.svg" alt="điểm của người dùng">
+                                <span>Câu hỏi</span>
+                            </p>
+                            <p class="text-center font-semibold text-[15px] mt-[5px] ">30</p>
+                        </div>
+                        {{!-- <div>
+                            <p class="text-[13px] justify-center gap-[5px] flex items-center ">
+                                <img class="w-[14px] " src="/media/icons/follower.svg" alt="điểm của người dùng">
+                                <span>Theo dõi</span>
+                            </p>
+                            <p class="text-center">420</p>
+                        </div> --}}
+                    </div>
+                    <div class="px-[10px] ">
+                        <button
+                            class="w-full flex items-center gap-[5px] justify-center py-[5px] border-[2px] text-[#0051b5] text-[15px] border-[#1273eb] rounded ">
+                            <span><img class="w-[14px] " src="/media/icons/bookmark-blue.svg" alt=""></span>
+                            <span>Bookmark bài viết này</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white h-full pb-[10px] shadow-sm ">
+                    <p class="px-[5px] uppercase font-medium py-[10px] border-b mx-[5px] ">Bài viết liên quan</p>
+                </div>
+            </div>
+        </div>
+        {{!-- comment box --}}
+        <div class="mx-auto bg-white shadow-sm p-[15px] w-[1215px] ">
+            <p class="font-semibold text-[20px] text-[#0b1a33] mb-[10px] ">Bình luận</p>
+            <div class="mb-[15px] pb-[15px] border-b ">
+                <div class="flex gap-[20px] ">
+                    <div class="rounded-full min-w-[50px] ">
+                        <a class="block" href="">
+                            <img class="w-[50px]  rounded-full h-[50px] object-cover "
+                                src="https://scontent.fhan7-1.fna.fbcdn.net/v/t1.6435-1/p320x320/173012119_842909266296981_1549928277775199968_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=7206a8&_nc_ohc=HoDEtGippckAX-UbEg3&_nc_ht=scontent.fhan7-1.fna&oh=791099721213340cbc5820e0c1d7fd99&oe=61290801"
+                                alt="image for user">
+                        </a>
+                    </div>
+                    <div class="border w-full p-[15px] pt-[10px] h-[100px] mb-[10px] rounded ">
+                        <textarea placeholder="Nhập nội dung bình luận....." class="resize-none focus:outline-none w-full block  "></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-end">
+                    <button class="bg-[#1273eb] py-[10px] rounded-[5px] text-[14px] text-white px-[15px] ">Gửi bình luận</button>
+                </div>
+            </div>
+            {{!-- comment item --}}
+            <ul>
+                <li>
+                    <div class="flex gap-[20px] mb-[15px] pb-[15px] border-b ">
+                        <div>
+                            <a class="block" href="">
+                                <img class="w-[50px]  rounded-full h-[50px] object-cover "
+                                    src="https://scontent.fhan7-1.fna.fbcdn.net/v/t1.6435-1/p320x320/173012119_842909266296981_1549928277775199968_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=7206a8&_nc_ohc=HoDEtGippckAX-UbEg3&_nc_ht=scontent.fhan7-1.fna&oh=791099721213340cbc5820e0c1d7fd99&oe=61290801"
+                                    alt="image for user">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="flex gap-[5px] items-center ">
+                                <p class="text-[#2d6ff7] text-[14px] font-semibold ">
+                                    <a class="block hover:underline " href="">Bùi Thế Anh</a>
+                                </p> -
+                                <span class="block text-[13px] text-[#707885] ">Khoảng 2h trước</span>
+                            </div>
+                            <div class="text-[16px] mb-[10px] ">
+                                Xin chào tôi là bùi thế anh nè
+                            </div>
+                            <div class="comment__actions flex gap-[5px] ">
+                                <button
+                                    class="hover:bg-gray-300 flex gap-[5px] px-[10px] rounded-[5px] bg-[#f7f7f7ab] items-center ">
+                                    <svg class="w-[15px] h-[15px]" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                        <g>
+                                            <g xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path
+                                                        d="M53.333,224C23.936,224,0,247.936,0,277.333V448c0,29.397,23.936,53.333,53.333,53.333h64    c12.011,0,23.061-4.053,32-10.795V224H53.333z"
+                                                        fill="#666666" data-original="#000000" style="" class="" />
+                                                </g>
+                                            </g>
+                                            <g xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path
+                                                        d="M512,304c0-12.821-5.077-24.768-13.888-33.579c9.963-10.901,15.04-25.515,13.653-40.725    c-2.496-27.115-26.923-48.363-55.637-48.363H324.352c6.528-19.819,16.981-56.149,16.981-85.333c0-46.272-39.317-85.333-64-85.333    c-22.165,0-37.995,12.48-38.677,12.992c-2.517,2.027-3.989,5.099-3.989,8.341v72.341l-61.44,133.099l-2.56,1.301v228.651    C188.032,475.584,210.005,480,224,480h195.819c23.232,0,43.563-15.659,48.341-37.269c2.453-11.115,1.024-22.315-3.861-32.043    c15.765-7.936,26.368-24.171,26.368-42.688c0-7.552-1.728-14.784-5.013-21.333C501.419,338.731,512,322.496,512,304z"
+                                                        fill="#666666" data-original="#000000" style="" class="" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="text-[#707885]">0</span>
+                                </button>
+                                <button
+                                    class="hover:bg-gray-300 flex gap-[5px] px-[10px] rounded-[5px] bg-[#f7f7f7ab] items-center ">
+                                    <svg class="w-[15px] h-[15px]" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                        <g>
+                                            <g xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path
+                                                        d="M117.333,10.667h-64C23.936,10.667,0,34.603,0,64v170.667C0,264.064,23.936,288,53.333,288h96V21.461    C140.395,14.72,129.344,10.667,117.333,10.667z"
+                                                        fill="#666666" data-original="#000000" style="" class="" />
+                                                </g>
+                                            </g>
+                                            <g xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path
+                                                        d="M512,208c0-18.496-10.581-34.731-26.347-42.667c3.285-6.549,5.013-13.803,5.013-21.333    c0-18.517-10.603-34.752-26.368-42.688c4.885-9.728,6.315-20.928,3.861-32.043C463.381,47.659,443.051,32,419.819,32H224    c-13.995,0-35.968,4.416-53.333,12.608v228.651l2.56,1.301l61.44,133.12V480c0,3.243,1.472,6.315,3.989,8.341    c0.683,0.512,16.512,12.992,38.677,12.992c24.683,0,64-39.061,64-85.333c0-29.184-10.453-65.515-16.981-85.333h131.776    c28.715,0,53.141-21.248,55.637-48.363c1.387-15.211-3.691-29.824-13.653-40.725C506.923,232.768,512,220.821,512,208z"
+                                                        fill="#666666" data-original="#000000" style="" class="" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="text-[#707885]">0</span>
+                                </button>
+                                <button class="text-[13px] hover:border-b hover:text-black text-[#707885] ">Trả lời</button>
+                                <span class="mx-[3px] text-[#90a0b9] text-[12px] transform translate-y-[2px] block">|</span>
+                                <button class="flex group hover:border-b gap-[5px] items-center ">
+                                    <span><img class="w-[13px] transform translate-y-[1px] "
+                                            src="/media/icons/share-gray.svg" alt=""></span>
+                                    <span class="text-[13px] group-hover:text-black text-[#707885] ">Chia sẻ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{> footer}}
+</div>
